@@ -524,18 +524,20 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(PB_STAT_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : BUCK_ON_Pin LDO_ON_Pin */
-  GPIO_InitStruct.Pin = BUCK_ON_Pin|LDO_ON_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+ // GPIO_InitStruct.Pin = BUCK_ON_Pin|LDO_ON_Pin;
+ // GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ // GPIO_InitStruct.Pull = GPIO_PULLUP;
+ // HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  HAL_GPIO_WritePin(GPIOB, BUCK_ON_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(GPIOB, LDO_ON_Pin, GPIO_PIN_SET);
+  //HAL_GPIO_WritePin(GPIOB, BUCK_ON_Pin, GPIO_PIN_SET);
+  //HAL_GPIO_WritePin(GPIOB, LDO_ON_Pin, GPIO_PIN_SET);
 
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, ESP_GPIO2_Pin|ESP_GPIO0_Pin|ESP_CH_PD_Pin|SYSTEM_LED_Pin 
                           |ESP_RST_Pin|LEPTON_PW_DWN_L_Pin|LEPTON_RESET_L_Pin, GPIO_PIN_RESET);
+
+
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
