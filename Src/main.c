@@ -196,7 +196,9 @@ int main(void)
 #else
 	  PT_SCHEDULE(uart_task(&uart_task_pt));
 #endif
+#ifndef PT1LITE
 	  PT_SCHEDULE(button_task(&button_task_pt));
+#endif
 
   }
   /* USER CODE END 3 */
